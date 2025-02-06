@@ -1,0 +1,12 @@
+# Ignore the virtual environment folder
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore specific directory's __pycache__
+jobs/__pycache__/
+
+# Ignore config.py inside jobs directory
+jobs/config.py
