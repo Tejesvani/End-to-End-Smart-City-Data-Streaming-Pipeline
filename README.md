@@ -10,7 +10,8 @@ The pipeline integrates Apache Kafka, Apache Spark, Docker, and AWS services to 
 
 
 ### Architecture Diagram
-<img width="1213" alt="image" src="https://github.com/user-attachments/assets/76b817eb-b98f-4388-b6f8-799d5b7265ed" />
+<img width="1194" alt="image" src="https://github.com/user-attachments/assets/d1255667-bd9d-4a09-bde6-dc2de8c1c907" />
+
 Picture: Diagram showing the flow of data between various systems, such as IoT devices, Kafka, Spark, AWS S3, Glue, Athena, Redshift
 
 ### Technologies Used
@@ -60,7 +61,7 @@ Before starting, ensure you have the following:
 ### Setup Instructions
 
 #### 1. Clone the Repository
-Clone the repository to your local machine:
+- Clone the repository to your local machine:
 ```
 git clone https://github.com/Tejesvani/End-to-End-Smart-City-Data-Streaming-Pipeline.git
 cd End-to-End-Smart-City-Data-Streaming-Pipeline
@@ -97,7 +98,7 @@ python jobs/main.py
 docker exec -it smartcitydatastreaming-spark-master-1 spark-submit --master "spark://spark-master:7077" --packages "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.apache.hadoop:hadoop-aws:3.3.1,com.amazonaws:aws-java-sdk:1.11.469" jobs/smart-city.py
 ```
 
-### Project Folder Structure
+## Project Folder Structure
 ```
 End-to-End-Smart-City-Data-Streaming-Pipeline/
 │
@@ -118,7 +119,7 @@ End-to-End-Smart-City-Data-Streaming-Pipeline/
 ## Conclusion
 The End-to-End Smart City Data Streaming Pipeline project successfully integrates multiple real-time data streams, simulating vehicle movement, GPS tracking, traffic camera monitoring, weather data, and emergency incident reporting. Leveraging Kafka for data ingestion and Spark Structured Streaming for processing, the pipeline demonstrates an efficient way to collect, process, and store vast amounts of data from various sources. The data is streamed and processed in real time, with outputs saved to Amazon S3 in Parquet format, ensuring scalability and easy access for analysis. This project is a solid foundation for future smart city applications, enabling real-time monitoring and decision-making.
 
-### Key Highlights:
+## Key Highlights:
 - **Detailed Setup**: Clear instructions for setting up Docker, AWS, and running the data pipeline.
 - **Technology Stack**: Clearly outlines all the technologies used in the project.
 - **Project Workflow**: Describes the end-to-end flow of the data pipeline, from ingestion to visualization.
