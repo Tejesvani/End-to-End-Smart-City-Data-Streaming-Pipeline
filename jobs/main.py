@@ -2,7 +2,7 @@ import json
 import os
 import random
 from confluent_kafka import SerializingProducer
-import simplejson
+import simplejson as json
 import uuid
 from datetime import datetime, timedelta
 import time
@@ -22,7 +22,7 @@ TRAFFIC_TOPIC = os.getenv('TRAFFIC_TOPIC', 'traffic_data')
 WEATHER_TOPIC = os.getenv('WEATHER_TOPIC', 'weather_data')
 EMERGENCY_TOPIC = os.getenv('EMERGENCY_TOPIC', 'emergency_data')
 
-
+random.seed(42)
 start_time = datetime.now()
 start_location = LONDON_COORDINATES.copy()
 
@@ -148,7 +148,7 @@ def simulate_journey(producer, vehicle_id):
     while True:
         vehicle_data = generate_vehicle_data(vehicle_id)
         gps_data = generate_gps_data(vehicle_id, vehicle_data['timestamp'])
-        traffic_camera_data = generate_traffic_camera_data(vehicle_id, vehicle_data['timestamp'], vehicle_data['location'],'Intelligent AI-powered Camera')
+        traffic_camera_data = generate_traffic_camera_data(vehicle_id, vehicle_data['timestamp'], vehicle_data['location'],'Nikon-Camera')
         weather_data = generate_weather_data(vehicle_id, vehicle_data['timestamp'], vehicle_data['location'])
         emergency_incident_data = generate_emergency_incident_data(vehicle_id, vehicle_data['timestamp'],
                                                                    vehicle_data['location'])
@@ -171,10 +171,13 @@ def simulate_journey(producer, vehicle_id):
         produce_data_to_kafka(producer, WEATHER_TOPIC, weather_data)
         produce_data_to_kafka(producer, EMERGENCY_TOPIC, emergency_incident_data)
 
-        time.sleep(5)
+        # break
+        time.sleep(3)
 
 
 if __name__ == '__main__':
+    
+    # Kafka or broker info
     producer_config = {
         'bootstrap.servers': KAFKA_BOOTSTRAP_SERVERS,
         'error_cb': lambda err: print(f'Kafka Error: {err}')
