@@ -42,9 +42,14 @@ Picture: Diagram showing the flow of data between various systems, such as IoT d
 - The processed data is written to **AWS S3** as Parquet files.
 - Spark Streaming is employed to handle real-time data and includes **checkpointing** for fault tolerance.
 
-### 3. Data Storage
+### 3. Data Storage & Cataloging
 - Processed data is stored in **AWS S3**.
 - **AWS Glue** crawlers automatically catalog the data for easier querying.
+
+### 4. Data Warehousing & Querying
+- **Amazon Redshift** is used for data warehousing to support advanced analytics.
+- **Amazon Athena** allows querying of S3 stored data wthout the need for a database.
+  
 
 
 ## Getting Started
@@ -54,7 +59,7 @@ Picture: Diagram showing the flow of data between various systems, such as IoT d
 Before starting, ensure you have the following:
 
 - **Docker** and **Docker Compose** installed on your machine.
-- **AWS Account** with proper IAM roles and permissions.
+- **AWS Account** with S3, Glue, Redshift, and Athena configured.
 - **Python 3.x** installed along with required Python libraries.
 - A working **Apache Kafka** and **Apache Spark** setup.
 
